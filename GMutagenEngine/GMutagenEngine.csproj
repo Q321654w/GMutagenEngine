@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -8,36 +8,30 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
-      <PackageReference Include="Moq" Version="4.20.72" />
-      <PackageReference Include="NCalc.Core" Version="5.7.0" />
-      <PackageReference Include="NCalcAsync" Version="5.7.0" />
-      <PackageReference Include="NCalcSync" Version="5.7.0" />
-      <PackageReference Include="xunit" Version="2.9.3" />
-      <PackageReference Include="xunit.abstractions" Version="2.0.3" />
-      <PackageReference Include="xunit.analyzers" Version="1.24.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="xunit.assert" Version="2.9.3" />
-      <PackageReference Include="xunit.core" Version="2.9.3" />
-      <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
-      <PackageReference Include="xunit.extensibility.execution" Version="2.9.3" />
-      <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
+      <ProjectReference Include="..\Constants.Literals\Constants.Literals.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Api.Sync\GMutagenEngine.Api.Sync.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Handlers.Async\GMutagenEngine.Handlers.Async.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Identification\GMutagenEngine.Identification.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Mediators.Sync\GMutagenEngine.Mediators.Sync.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Schemas.Extraction.Api\GMutagenEngine.Schemas.Extraction.Api.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Schemas\GMutagenEngine.Schemas.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values.Factories.Default.Api\GMutagenEngine.Values.Factories.Default.Api.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values.Factories.Default\GMutagenEngine.Values.Factories.Default.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values.Factories.Reflective\GMutagenEngine.Values.Factories.Reflective.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values\GMutagenEngine.Values.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.MetaData.Designtime\GMutagenEngine.MetaData.Designtime.csproj" />
+      <ProjectReference Include="..\Types.Functional\Types.Functional.csproj" />
+    
+    <ProjectReference Include="..\GMutagenEngine.MetaData.Runtime\GMutagenEngine.MetaData.Runtime.csproj" />
+  </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.7" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Concept\Async\" />
-      <Folder Include="Concept\Sync\" />
-      <Folder Include="Infrastructure\DataStructures\" />
-      <Folder Include="Infrastructure\Functions\" />
-      <Folder Include="Infrastructure\MetaData\CompileTime\" />
-      <Folder Include="Infrastructure\MetaData\RunTime\" />
-      <Folder Include="Infrastructure\StateMachines\Async\" />
+      <Folder Include="Infrastructure\" />
     </ItemGroup>
 
 </Project>

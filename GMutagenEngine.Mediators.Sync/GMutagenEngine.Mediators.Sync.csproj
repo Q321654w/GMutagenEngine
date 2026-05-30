@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>GMutagenEngine.Mediators</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GMutagenEngine.Mediators.General\GMutagenEngine.Mediators.General.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Handlers.Sync\GMutagenEngine.Handlers.Sync.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Middlewares.Sync\GMutagenEngine.Middlewares.Sync.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+    
+    <ProjectReference Include="..\GMutagenEngine.MetaData.Runtime\GMutagenEngine.MetaData.Runtime.csproj" />
+  </ItemGroup>
+
+</Project>

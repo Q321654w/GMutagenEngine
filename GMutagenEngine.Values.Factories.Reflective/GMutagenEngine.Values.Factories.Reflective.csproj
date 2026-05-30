@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GMutagenEngine.Values.Reflective\GMutagenEngine.Values.Reflective.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values\GMutagenEngine.Values.csproj" />
+    
+    <ProjectReference Include="..\GMutagenEngine.MetaData.Runtime\GMutagenEngine.MetaData.Runtime.csproj" />
+  </ItemGroup>
+
+</Project>

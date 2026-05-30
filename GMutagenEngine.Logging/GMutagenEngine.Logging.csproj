@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Constants.Literals\Constants.Literals.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Handlers.Sync\GMutagenEngine.Handlers.Sync.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Mediators.Api.Sync.Topics\GMutagenEngine.Mediators.Api.Sync.Topics.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Mediators.Sync\GMutagenEngine.Mediators.Sync.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.MetaData.Runtime\GMutagenEngine.MetaData.Runtime.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Pipelines.Assembler\GMutagenEngine.Pipelines.Assembler.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+        <ProjectReference Include="..\Infrastructure\GMutagenEngine.Mediators.Api.Sync.Channels\GMutagenEngine.Mediators.Api.Sync.Channels.csproj" />
+    </ItemGroup>
+
+</Project>

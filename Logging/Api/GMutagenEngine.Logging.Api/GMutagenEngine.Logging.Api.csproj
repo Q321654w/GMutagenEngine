@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>GMutagenEngine.Logging.IndexedStorage.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\GMutagenEngine.Logging\GMutagenEngine.Logging.csproj" />
+        <ProjectReference Include="..\..\..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+    </ItemGroup>
+
+</Project>

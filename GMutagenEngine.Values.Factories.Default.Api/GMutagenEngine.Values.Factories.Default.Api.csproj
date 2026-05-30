@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\System.Activators\System.Activators.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values.Factories.Default\GMutagenEngine.Values.Factories.Default.csproj" />
+    </ItemGroup>
+
+</Project>

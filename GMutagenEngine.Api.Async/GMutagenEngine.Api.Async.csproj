@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GMutagenEngine.Api.General\GMutagenEngine.Api.General.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Mediators.Api.Async.Topics\GMutagenEngine.Mediators.Api.Async.Topics.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Mediators.Async\GMutagenEngine.Mediators.Async.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+    </ItemGroup>
+
+</Project>

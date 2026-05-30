@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\GMutagenEngine.Handlers.Sync\GMutagenEngine.Handlers.Sync.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Identification\GMutagenEngine.Identification.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Mediators.Api.Sync.Topics\GMutagenEngine.Mediators.Api.Sync.Topics.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Mediators.General\GMutagenEngine.Mediators.General.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Mediators.Sync\GMutagenEngine.Mediators.Sync.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Middlewares.Sync\GMutagenEngine.Middlewares.Sync.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Pipelines.General\GMutagenEngine.Pipelines.General.csproj" />
+        <ProjectReference Include="..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+        <ProjectReference Include="..\Infrastructure\GMutagenEngine.Mediators.Api.Sync.Channels\GMutagenEngine.Mediators.Api.Sync.Channels.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.7" />
+    </ItemGroup>
+
+</Project>

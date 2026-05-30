@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Constants.Literals\Constants.Literals.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Storing\GMutagenEngine.Storing.csproj" />
+      <ProjectReference Include="..\GMutagenEngine.Values\GMutagenEngine.Values.csproj" />
+    
+    <ProjectReference Include="..\GMutagenEngine.MetaData.Runtime\GMutagenEngine.MetaData.Runtime.csproj" />
+  </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NCalcAsync" Version="5.7.0" />
+      <PackageReference Include="NCalcSync" Version="5.7.0" />
+    </ItemGroup>
+
+</Project>
