@@ -305,13 +305,13 @@ public static class FrameworkMediatorFactory
         publishMediator = new SyncMediatorPublish<TId>(publishRegistry);
 
         publishWithInputRegistry = new InMemoryIndexedSyncRegistry<TId, ISyncActionHandlerIn>();
-        publishWithInputMediator = new SyncMediatorPublishWithInput<TId>(publishWithInputRegistry);
+        publishWithInputMediator = new SyncPublishWithInput<TId>(publishWithInputRegistry);
 
         sendRegistry = new InMemoryIndexedSyncRegistry<TId, ISyncFuncHandlerOut>();
-        sendMediator = new SyncMediatorSend<TId>(sendRegistry);
+        sendMediator = new SyncSend<TId>(sendRegistry);
 
         sendWithInputRegistry = new InMemoryIndexedSyncStorage<TId, ISyncFuncHandlerInOut>();
-        sendWithInputMediator = new SyncMediatorSendWithInput<TId>(sendWithInputRegistry);
+        sendWithInputMediator = new SyncSendWithInput<TId>(sendWithInputRegistry);
 
         publishPipelineRegistry = new InMemoryIndexedSyncRegistry<TId, IEnumerable<IMiddleware>>();
         publishPipeline = new SyncMediatorPublishPipeline<TId>(publishMediator, publishPipelineRegistry);

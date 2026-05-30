@@ -1,8 +1,9 @@
 namespace GMutagenEngine.OperationContexts;
 
-public interface IOperationContext<in T>
+public interface IOperationContext<T>
 {
-    IDisposable Push(T operationId);
+    void Push(T operationId);
+    T Pop();
 }
 
 public interface IOperation<T>

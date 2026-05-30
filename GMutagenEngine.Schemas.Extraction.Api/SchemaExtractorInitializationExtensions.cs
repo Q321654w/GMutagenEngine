@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using GMutagenEngine.Handlers.Actions.Intarfeces;
+using GMutagenEngine.Handlers.Actions.Interfaces;
 using GMutagenEngine.Handlers.Funcs.Interfaces;
 using GMutagenEngine.Mediators;
 using GMutagenEngine.Middlewares.Sync.Interfaces;
@@ -43,23 +45,38 @@ public static class SchemaExtractorInitializationExtensions
 
     public static ISyncMediator CreateDefaultMediator()
     {
-        var dependencies = SyncMediatorInMemoryDependenciesFactory.Create<Type, Type>(
-            out var handlerRegistry,
-            out var middlewareRegistry);
+        var publishStorage = new InMemoryIndexedSyncStorage<Type, ISyncActionHandler>();
+        var publishWithInputStorage = new InMemoryIndexedSyncStorage<Type, ISyncActionHandlerIn>();
+        var sendStorage = new InMemoryIndexedSyncStorage<Type, ISyncFuncHandlerOut>();
+        var sendWithInputStorage = new InMemoryIndexedSyncStorage<Type, ISyncFuncHandlerInOut>();
 
-        var plan = new SyncMediatorPipelinePlanBuilder<Type, Type>()
-            .UseLocalMiddlewares()
-            .WithDefaultId(typeof(Null))
-            .Build();
+        var publish = new SyncMediatorPublish<Type>(publishStorage);
+        var publishWithInput = new SyncPublishWithInput<Type>(publishWithInputStorage);
+        var send = new SyncSend<Type>(sendStorage);
+        var sendWithInput = new SyncSendWithInput<Type>(sendWithInputStorage);
 
-        var assembly = new SyncMediatorPipelineAssembler<Type, Type>()
-            .Assemble(dependencies, plan);
+        var sendWithInputMiddlewareStorage = new InMemoryIndexedSyncStorage<Type, IEnumerable<IInOutMiddleware>>();
+        var sendWithInputWithPipeline = new SyncMediatorSendWithInputPipeline<Type>(
+            sendWithInput,
+            sendWithInputMiddlewareStorage);
 
-        var mediator = assembly.MediatorWithDefaultId
-            ?? throw new InvalidOperationException("Default-id mediator is not configured.");
+        var typedMediator = new SyncMediator<Type>(
+            publish,
+            publishWithInput,
+            send,
+            sendWithInputWithPipeline);
 
-        handlerRegistry.AddDefaultHandlers(mediator, assembly.TypedMediator, handlerRegistry);
-        middlewareRegistry.AddDefaultMiddlewares(mediator);
+        var publishDefaultId = new SyncDefaultIdPublish<Type>(typedMediator, typeof(Null));
+        var publishWithInputDefaultId = new SyncDefaultIdPublishWithInput<Type>(typedMediator, typeof(Null));
+        var sendDefaultId = new SyncDefaultIdSend<Type>(typedMediator, typeof(Null));
+        var sendWithInputDefaultId = new SyncDefaultIdSendWithInput<Type>(typedMediator, typeof(Null));
+
+        var mediator = new SyncMediator(publishDefaultId, publishWithInputDefaultId,
+            sendDefaultId, sendWithInputDefaultId);
+
+        sendWithInputStorage.AddDefaultHandlers(mediator, typedMediator, sendWithInputStorage);
+
+        sendWithInputMiddlewareStorage.AddDefaultMiddlewares(mediator);
 
         return mediator;
     }

@@ -3,6 +3,7 @@ namespace GMutagenEngine.OperationContexts;
 public class OperationContext<T> : IOperationContext<T>, IOperation<T>
 {
     private readonly AsyncLocal<T> _current = new();
+    private readonly Stack<T> _chain = new();
 
     public bool TryGetId(out T operationId)
     {
@@ -17,24 +18,16 @@ public class OperationContext<T> : IOperationContext<T>, IOperation<T>
         return true;
     }
 
-    public IDisposable Push(T operationId)
+    public T Pop()
     {
-        var previous = _current.Value;
-        _current.Value = operationId;
-        return new PopHandle<T>(this, previous);
+        return _chain.Pop();
     }
-}
 
-
-public class PopHandle<T>(OperationContext<T> owner, T previous) : IDisposable
-{
-    private int _disposed;
-
-    public void Dispose()
+    public void Push(T operationId)
     {
-        if (Interlocked.Exchange(ref _disposed, 1) != 0)
-            return;
+        if (_current.Value != null)
+            _chain.Push(_current.Value);
 
-        owner._current.Value = previous;
+        _current.Value = operationId;
     }
 }

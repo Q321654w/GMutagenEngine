@@ -58,7 +58,7 @@ public sealed class SyncMediatorPublish<TId>(
     }
 }
 
-public sealed class SyncMediatorPublishWithInput<TId>(
+public sealed class SyncPublishWithInput<TId>(
     IIndexedSyncRegistry<TId, ISyncActionHandlerIn> registry)
     : ISyncMediatorPublishWithInput<TId>
 {
@@ -71,7 +71,7 @@ public sealed class SyncMediatorPublishWithInput<TId>(
     }
 }
 
-public sealed class SyncMediatorSend<TId>(
+public sealed class SyncSend<TId>(
     IIndexedSyncRegistry<TId, ISyncFuncHandlerOut> registry)
     : ISyncMediatorSend<TId>
 {
@@ -84,7 +84,7 @@ public sealed class SyncMediatorSend<TId>(
     }
 }
 
-public sealed class SyncMediatorSendWithInput<TId>(
+public sealed class SyncSendWithInput<TId>(
     IIndexedSyncRegistry<TId, ISyncFuncHandlerInOut> registry)
     : ISyncMediatorSendWithInput<TId>
 {
